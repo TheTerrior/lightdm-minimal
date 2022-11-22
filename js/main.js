@@ -11,16 +11,16 @@ function get_date_time() {
     var minute  = now.getMinutes();
     var second  = now.getSeconds(); 
 
-    if(day.toString().length == 1) {
+    if (day.toString().length == 1) {
          day = '0' + day;
     }   
-    if(hour.toString().length == 1) {
+    if (hour.toString().length == 1) {
          hour = '0' + hour;
     }
-    if(minute.toString().length == 1) {
+    if (minute.toString().length == 1) {
          minute = '0' + minute;
     }
-    if(second.toString().length == 1) {
+    if (second.toString().length == 1) {
          second = '0' + second;
     }   
 
@@ -149,7 +149,7 @@ function update_current_session() {
 
 window.show_prompt = function(text, type) {   
     password = document.getElementById("password");
-    if(type === 'password') {
+    if (type === 'password') {
         lightdm.respond(password.value);
     }
 };
@@ -206,13 +206,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000);
     document.getElementById('time').innerHTML = get_date_time();
 
-    if(window.lightdm !== undefined && lightdm.hostname !== undefined) {
+    if (window.lightdm !== undefined && lightdm.hostname !== undefined) {
         document.getElementById('pagetitle').innerText = lightdm.hostname;
     }
 
-    if(window.lightdm !== undefined && lightdm.users.length === 1) {
-        document.getElementById('username').value = lightdm.users[0].username;
+    if (window.lightdm !== undefined && lightdm.users.length === 1) {
+        document.getElementById("username").value = lightdm.users[0].username;
         document.getElementById("password").focus();
+    } else {
+        document.getElementById("username").focus();
     }
 
     add_session_options()
