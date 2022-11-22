@@ -2,6 +2,13 @@
 Simple theme for the LightDM display manager using lightdm-webkit2-greeter. Intended mostly for single-user systems.
 ![Screen sample 1](https://github.com/TheTerrior/lightdm-minimal/blob/master/assets/screenshots/screenshot-1.png)
 
+## This theme is forked
+This theme is forked from dimaglushkov's theme and incorporates elements from madroots' fork.
+dimaglushkov:
+https://github.com/dimaglushkov/lightdm-webkit2-theme-minimal
+madroots:
+https://github.com/madroots/lightdm-webkit2-theme-protector
+
 
 ## Installation 
 1. Clone or download this repo
