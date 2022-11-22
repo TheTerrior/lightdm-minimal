@@ -6,7 +6,7 @@ Simple theme for the LightDM display manager using lightdm-webkit2-greeter. Inte
 ## Installation 
 1. Clone or download this repo
 2. Copy the content of the repo to `/usr/share/lightdm-webkit/themes/minimal`
-2. Install `lightdm` and `lightdm-webkit2-greeter`
+3. Install `lightdm` and `lightdm-webkit2-greeter`
 4. Set webkit2 greeter as a greeter. Edit file `/etc/lightdm/lightdm.conf`: 
 ```
 [Seat:*]
@@ -18,4 +18,14 @@ greeter-session=lightdm-webkit2-greeter
 ```
 webkit_theme = minimal
 ```
-6. Enjoy!
+
+### Alternatively...
+Run the risky installer with root permissions instead of step 2 above:
+```
+sudo ./risky_installer.sh
+```
+This will replace any pre-existing theme on your system called 'minimal'.
+Mostly intended for development purposes to quickly reload the new theme.
+
+
+Enjoy!

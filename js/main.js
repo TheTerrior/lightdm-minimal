@@ -213,7 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if(window.lightdm !== undefined && lightdm.users.length === 1) {
         document.getElementById('username').value = lightdm.users[0].username;
         document.getElementById("password").focus();
-        show_message('Um we testingthis', 'error');
     }
 
     add_session_options()
