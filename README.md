@@ -18,14 +18,9 @@ greeter-session=lightdm-webkit2-greeter
 ```
 webkit_theme = minimal
 ```
-
 ### Alternatively...
 Run the risky installer with root permissions instead of step 2 above:
 ```
 sudo ./risky_installer.sh
 ```
-This will replace any pre-existing theme on your system called 'minimal'.
-Mostly intended for development purposes to quickly reload the new theme.
-
-
-Enjoy!
+This will replace any pre-existing theme on your system called 'minimal'. Mostly intended for development purposes to quickly reload the new theme.
