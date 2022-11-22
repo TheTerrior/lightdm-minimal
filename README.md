@@ -1,6 +1,6 @@
 # A minimal LightDM WebKit2 theme
 Simple theme for the LightDM display manager using lightdm-webkit2-greeter.
-![Screen sample 1](https://github.com/allacee/lightdm-webkit2-theme-minimal/blob/master/assets/screenshots/screenshot-1.png)
+![Screen sample 1](https://github.com/TheTerrior/lightdm-minimal/blob/master/assets/screenshots/screenshot-1.png)
 
 
 ## Installation 
