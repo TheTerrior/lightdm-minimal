@@ -25,21 +25,23 @@
 		</ul>
 	</nav>
 	<div id="main_content">
-		<h1 id="pagetitle">Log in</h1>
+		<span id="pagetitle">log in</span>
+		<br id="titlebreak_0">
+		<br id="titlebreak_1">
 		<form id="login" onsubmit="handle_input()">
+			<span id="user_indicator">username: </span>
 			<input  type="text"
 			id="username"
-			placeholder="username"
-			class="form-field"
-			required/>
+			class="form-field"/>
+
+			<br id="break">
 			
+			<span id="pass_indicator">password: </span>
 			<input type="password"
 			id="password"
-			placeholder="password"
-			required
 			class="form-field"/>
 			
-			<button type="submit" value="login">log in</button>
+			<button id="login_button" type="submit" value="login">log in</button>
 		</form>
 		
 		<ul class="flat-list" id="messages">

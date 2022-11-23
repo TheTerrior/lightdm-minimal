@@ -1,6 +1,10 @@
 let current_session = 'greeter:config:session';
 let blank_session = 'select session:';
 
+let console_mode = true; // change the theming a little to resemble a TUI, TODO
+
+
+// Gets the current system time, returns string representation
 function get_date_time() {
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var now     = new Date(); 
@@ -27,6 +31,7 @@ function get_date_time() {
     return (day + ' ' + month + ' ' + year + ', ' + hour + ':' + minute + ':' + second);
 }
 
+// Clears all messages being displayed
 function clear_messages() {
     let messages = document.getElementById("messages");
     messages.innerHTML = "";
@@ -80,6 +85,30 @@ function init_session_menu() {
             this.classList.toggle("select-arrow-active");
             });
     }
+
+    // Here we'll implement the console mode
+    if (console_mode === true) {
+        document.getElementById("break").style.display = "inline";
+        document.getElementById("titlebreak_0").style.display = "inline";
+        document.getElementById("titlebreak_1").style.display = "inline";
+        document.getElementById("user_indicator").style.display = "inline";
+        document.getElementById("pass_indicator").style.display = "inline";
+        document.getElementById("login_button").style.display = "none";
+        document.getElementById("pagetitle").style.fontSize = "16px";
+        document.getElementById("pagetitle").style.fontWeight = "normal";
+    } else {
+        document.getElementById("break").style.display = "none";
+        document.getElementById("titlebreak_0").style.display = "none";
+        document.getElementById("titlebreak_1").style.display = "none";
+        document.getElementById("user_indicator").style.display = "none";
+        document.getElementById("pass_indicator").style.display = "none";
+        document.getElementById("login_button").style.display = "inline";
+        document.getElementById("username").setAttribute("placeholder", "username") ;
+        document.getElementById("password").setAttribute("placeholder", "password") ;
+        document.getElementById("pagetitle").style.fontSize = "32px";
+        document.getElementById("pagetitle").style.fontWeight = "bold";
+    }
+
 }
 
 function close_all_select(elmnt) {
@@ -180,17 +209,32 @@ window.authentication_complete = function() {
     }
 };
 
+// Runs if we're attempting authentication
 window.start_authentication = function(username) {   
-    clear_messages();
+    //clear_messages();
     lightdm.authenticate(username);
 };
 
+// Runs when we confirm our credentials
 window.handle_input = function(e) {   
     let username = document.getElementById("username");
+
+    // if the username is empty
+    if (username.value === "") {
+        clear_messages();
+        show_message("No username provided", "error");
+        e.preventDefault();
+        return;
+    }
+    
+    // no session was provided
     if (localStorage.getItem(current_session) === null) {
+        clear_messages();
         show_message('Choose a proper session', 'error');
         e.preventDefault();
+        return;
     }
+
     start_authentication(username.value);
     
     if (e !== undefined)
@@ -199,6 +243,7 @@ window.handle_input = function(e) {
 
 document.addEventListener("click", close_all_select);
 
+// Runs when the webpage is finished loading
 document.addEventListener('DOMContentLoaded', function() {  
     time = document.getElementById('time')
     setInterval(() => {
@@ -210,15 +255,19 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('pagetitle').innerText = lightdm.hostname;
     }
 
+    // Checks if more than one user exists on this system
     if (window.lightdm !== undefined && lightdm.users.length === 1) {
         document.getElementById("username").value = lightdm.users[0].username;
-        document.getElementById("password").focus();
+        document.getElementById("password").focus(); //focus the password field if only one user
     } else {
-        document.getElementById("username").focus();
+        document.getElementById("username").focus(); //focus the user field if multiple users
     }
 
     add_session_options()
     init_session_menu()
-
-    
 });
+
+// If console mode is enabled, we will use arrow keys to traverse
+document.onkeydown = function(e) {
+    
+}
