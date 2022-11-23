@@ -114,12 +114,18 @@ ol {
 
 .form-field {
     background-color: inherit;
-    border: none;
+    border: 0px dashed #000000;
     border-bottom: 1px dashed #ECF3F7;
     font-size: 100%;
     color: #ECF3F7;
     padding: 0;
     margin-bottom: 1em;
+}
+
+.form-field:focus{
+    outline:none;
+    /* border-color:blue; */
+    /* box-shadow:0 0 10px blue; creates a shadow around the selected box */
 }
 
 #main_content li a:hover {
@@ -171,10 +177,11 @@ p {
 .select-selected {
     color: #84abff;
 }
-
+/*
 .select-selected :hover {
     color: #4882ff;
 }
+*/
   
 .select-items {
     position: absolute;
