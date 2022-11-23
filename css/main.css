@@ -1,11 +1,13 @@
 @font-face {
-    font-family: 'NotoMono Nerd Font';
+    /*font-family: 'NotoMono Nerd Font';
     src: url(../assets/notomono-nerd-font.ttf);
-    font-weight: normal;
+    font-weight: normal;*/
+    font-family: 'Source Code Pro';
+    src: url(../assets/SourceCodePro-Regular.otf);
 }
 
 * {
-    font-family: 'NotoMono Nerd Font';
+    font-family: 'Source Code Pro';
 }
 
 body {
@@ -177,11 +179,10 @@ p {
 .select-selected {
     color: #84abff;
 }
-/*
+
 .select-selected :hover {
     color: #4882ff;
 }
-*/
   
 .select-items {
     position: absolute;
