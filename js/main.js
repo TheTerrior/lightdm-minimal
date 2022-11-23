@@ -1,5 +1,5 @@
 let current_session = 'greeter:config:session';
-let blank_session = 'select desktop:';
+let blank_session = 'select session:';
 
 function get_date_time() {
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -114,7 +114,7 @@ function add_session_options() {
         } 
     }
     else {
-        show_message("Unable to get the list of available sessions / desktop enviroments", "error")
+        show_message("Unable to get list of available sessions", "error")
     }
 
     if (localStorage.getItem(current_session) !== null && session_names.includes(localStorage.getItem(current_session))) {
@@ -188,7 +188,7 @@ window.start_authentication = function(username) {
 window.handle_input = function(e) {   
     let username = document.getElementById("username");
     if (localStorage.getItem(current_session) === null) {
-        show_message('Choose a proper session/desktop enviroment', 'error');
+        show_message('Choose a proper session', 'error');
         e.preventDefault();
     }
     start_authentication(username.value);
