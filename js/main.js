@@ -1,7 +1,8 @@
 let current_session = 'greeter:config:session';
 let blank_session = 'select session:';
 
-let console_mode = true; // change the theming a little to resemble a TUI, TODO
+// NOTE: do not set this to true, feature has not been implemented yet and setting to true will not allow you to log in
+let console_mode = false; // change the theming a little to resemble a TUI, TODO
 
 
 // Gets the current system time, returns string representation
